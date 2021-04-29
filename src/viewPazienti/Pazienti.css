@@ -1,0 +1,39 @@
+.pazienti-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.pazienti-wrapper h1 {
+    padding: 0;
+    margin: 0 0 20px 10px ;
+}
+
+.table-header {
+    background: #172b4d;
+    color: #f4f5f7;
+}
+
+.expanded-row {
+    border-bottom: 3px solid #172b4d52;
+}
+
+.expanded-row-content {
+    padding: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: center;
+}
+
+.add-button {
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.refresh-button {
+    margin-bottom: 10px;
+    margin-left: 5px;
+}

@@ -1,0 +1,12 @@
+.card {
+    width: 300px;
+    padding: 5px 20px;
+}
+
+.card h5 {
+    font-weight: 600;
+}
+
+.card p {
+    margin: 0;
+}

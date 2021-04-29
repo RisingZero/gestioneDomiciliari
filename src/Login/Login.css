@@ -1,0 +1,35 @@
+h1 {
+    padding: 20px;
+}
+
+h4 {
+    margin: 0;
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+.login-wrapper {
+    display: flexbox;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 30%;
+    margin: auto;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .login-wrapper {
+        width: 60%;
+    }
+    
+}
+
+@media screen and (max-width: 900px) {
+
+    .login-wrapper {
+        width: 90%;
+    }
+    
+}
+
