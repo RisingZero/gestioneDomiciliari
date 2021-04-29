@@ -1,3 +1,16 @@
 .options-row-expand {
     display: flex;
 }
+
+.visita-done {
+    background: var(--success);
+}
+
+.visita-programmed {
+    background: var(--warning);
+}
+
+.visita-todo {
+    background: var(--danger);
+    color: white;
+}

@@ -72,6 +72,23 @@ export default function DettagliPaziente(props) {
             return "danger"
     }
 
+    const checkVisitaEffettuata = (data) => {
+        if (data !== "") {
+            let today = new Date();
+            let paramData = data.split("-");
+            let giornoVisita = new Date(paramData[0], paramData[1]-1, paramData[2]);
+
+            if ((today.getTime() > giornoVisita.getTime())) {
+                return "visita-done";
+            } else {
+                return "visita-programmed";
+            }
+        } else {
+            return "visita-todo";
+        }
+        
+    }
+
     useEffect(() => {
         getMedici()
     }, [])
@@ -159,7 +176,7 @@ export default function DettagliPaziente(props) {
                                 />
                         </Col>
                         <Col>
-                            <Form.Label>
+                            <Form.Label className={checkVisitaEffettuata(visite[idx].dataEffettuata)}>
                                 Effettuata il
                             </Form.Label>
                             <Form.Control 
