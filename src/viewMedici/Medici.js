@@ -6,7 +6,7 @@ export default function Medici() {
 
     return (
         <div className="medici-wrapper">
-            <h1>Medici</h1>
+            <h1><strong>Medici</strong></h1>
         </div>
     )
 }
