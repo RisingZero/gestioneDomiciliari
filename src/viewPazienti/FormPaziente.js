@@ -243,7 +243,7 @@ export default function FormPaziente(props) {
                     } else {
                         let visite = [{
                             dataRichiesta: dataRichiesta,
-                            dataEffettuata: dataEffettuata,
+                            dataEffettuata: (dataEffettuata !== '') ? dataEffettuata : '--',
                             priorita: priorita,
                             patologia: patologia,
                             voto:""

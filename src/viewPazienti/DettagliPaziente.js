@@ -260,7 +260,7 @@ export default function DettagliPaziente(props) {
                                 let copiaVisite = [...visite];
                                 copiaVisite.unshift({
                                     dataRichiesta:"",
-                                    dataEffettuata:"",
+                                    dataEffettuata:"--",
                                     priorita:"",
                                     patologia:"",
                                     voto:""
