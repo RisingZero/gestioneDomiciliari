@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import fire from '../fire';
+import VotiMedico from './VotiMedico';
 import './CardMedico.css';
 
 
 export default function CardMedico(props) {
 
-    const { idMedico } = props;
+    const { idMedico, uid } = props;
 
     const [medico, setMedico] = useState({});
 
@@ -33,6 +34,7 @@ export default function CardMedico(props) {
             {medico.telefono1 && <p>{medico.telefono1}</p>}
             {medico.telefono2 && <p>{medico.telefono2}</p>}
             {medico.telefono3 && <p>{medico.telefono3}</p>} 
+            <VotiMedico medid={idMedico} uid={uid} />
         </div>
     )
 }

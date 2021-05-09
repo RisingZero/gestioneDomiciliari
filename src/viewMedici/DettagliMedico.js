@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Row, Col, Button, Badge, InputGroup } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Form, Row, Col, Button, InputGroup } from 'react-bootstrap';
+import VotiMedico from './VotiMedico';
 import fire from '../fire';
-import './DettagliMedico.css';
 
 export default function DettagliMedico(props) {
 
@@ -9,7 +9,6 @@ export default function DettagliMedico(props) {
 
     const [modifica, setModifica] = useState(false);
     const [elimina, setElimina] = useState(false);
-    const [votiVisite, setVotiVisite] = useState([]);
 
     const [email, setEmail] = useState(med.email);
     const [telefono1, setTelefono1] = useState(med.telefono1);
@@ -41,51 +40,6 @@ export default function DettagliMedico(props) {
             });
         setModifica(false);
     };
-
-    async function getPazientiOfMedico(id) {
-        let pazienti = [];
-        await db.collection(uid)
-            .where("medico", "==", id)
-            .get()
-            .then((querySnapshot) => {
-                querySnapshot.forEach((doc) =>{
-                    let paz = doc.data();
-                    let visitePaz = paz.visite;
-                    visitePaz.forEach((visita) => {
-                        pazienti.push(visita.voto);
-                    })
-                })
-            })
-            .catch((error) => console.log("Error getting pazient infos: ", error));
-        setVotiVisite(pazienti);
-        console.log(votiVisite);
-    }
-
-    const badgeColor = (condition) => {
-        if (condition === "")
-            return "secondary";
-        if (condition === "OK")
-            return "success"
-        if (condition === "BAD")
-            return "danger"
-    };
-
-    const votiList = () => {
-        let lista = [];
-        for (let i = 0; i < votiVisite.length; i++) {
-            lista.push(<Badge
-                className={"badge-" + badgeColor(votiVisite[i])}
-            >
-            <span><i className="ni ni-check-bold"></i></span>
-            </Badge>)
-        }
-        return lista;
-    }
-
-
-    useEffect(() => {
-        getPazientiOfMedico(med.id);
-    }, [])
 
     return (
         <div>
@@ -147,9 +101,7 @@ export default function DettagliMedico(props) {
                     </Col>
                 </Form.Group>
             </Form>
-            <div className="voti-visite">
-                {votiList()} 
-            </div>
+            <VotiMedico medid={med.id} uid={uid} />
             <div className="options-row-expand">
                 <Button variant="warning" onClick={() => setModifica(!modifica)}>Abilita / Disabilita modifica</Button>
                 {(modifica) &&

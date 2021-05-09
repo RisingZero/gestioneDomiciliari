@@ -151,7 +151,7 @@ export default function DettagliPaziente(props) {
                             ))}
                         </Form.Control>
                     </Col>
-                    <Col>{(paz.medico!=-1) && <CardMedico idMedico={medico} />}</Col>
+                    <Col>{(paz.medico!=-1) && <CardMedico idMedico={medico} uid={uid} />}</Col>
                 </Form.Group>
             </Form>
             <Form>
