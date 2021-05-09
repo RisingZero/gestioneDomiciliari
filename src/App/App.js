@@ -80,7 +80,7 @@ function App() {
             />
     } else {
         //console.log(user.uid);
-        const displayPage = (page === "pazienti") ? <Pazienti uid={user.uid} /> : <Medici />
+        const displayPage = (page === "pazienti") ? <Pazienti uid={user.uid} /> : <Medici uid={user.uid} />
         return (
             <div className="wrapper">
                 <Navigation handleLogout={handleLogout} setPage={setPage} />

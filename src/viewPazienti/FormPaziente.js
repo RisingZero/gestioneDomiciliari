@@ -73,12 +73,12 @@ export default function FormPaziente(props) {
             .withConverter(pazienteConverter)
             .set(paziente)
             .then(() => {
-                console.log("Documento written!");
+                console.log("Document written!");
             })
             .catch((error) => {
                 console.error("Error adding document: ", error);
             });
-        }
+    }
 
     async function getMedici() {
         let medici = [];

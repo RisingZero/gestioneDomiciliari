@@ -117,7 +117,6 @@ export default function Pazienti(props) {
                 }
                 selected.splice(i, 1);
             }
-            console.log(selected);
             setSelectedPazienti(selected);
         },
         selectionRenderer: ({mode, checked, disabled}) => (
