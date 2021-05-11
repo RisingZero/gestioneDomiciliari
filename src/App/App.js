@@ -6,6 +6,8 @@ import Medici from '../viewMedici/Medici';
 import Pazienti from '../viewPazienti/Pazienti';
 import MapPage from '../gmaps/MapPage';
 import Login from '../Login/Login';
+import Profile from '../Profile/Profile';
+import Tools from '../Tools/Tools';
 import fire from '../fire';
 
 function App() {
@@ -83,13 +85,17 @@ function App() {
     } else {
         let displayPage;
         if (page === "home")
-            displayPage = <Home uid={user.uid} />
+            displayPage = <Home uid={user.uid} setPage={setPage} />
         else if (page === "pazienti")
             displayPage = <Pazienti uid={user.uid} setPage={setPage} />
         else if (page === "maps")
             displayPage = <MapPage />
         else if (page === "medici")
             displayPage = <Medici uid={user.uid} />
+        else if (page === "tools")
+            displayPage = <Tools />
+        else if (page === "profile")
+            displayPage = <Profile uid={user.uid} />
         return (
             <div className="wrapper">
                 <Navigation handleLogout={handleLogout} setPage={setPage} />

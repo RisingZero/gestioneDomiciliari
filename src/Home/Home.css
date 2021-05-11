@@ -1,0 +1,12 @@
+.cards {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 2em;
+}
+
+.card-item {
+    width: 300px;
+    margin: auto;
+    border: 2px solid var(--default);
+    cursor: pointer;
+}

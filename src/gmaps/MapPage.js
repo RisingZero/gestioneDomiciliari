@@ -15,7 +15,7 @@ export default function MapPage() {
             <p className="indirizzo">{place.indirizzo}</p>
         </div>
     ))
-
+    
     return (
         <div className="map-page">
             <div className="address-container">
