@@ -28,7 +28,14 @@
     align-content: center;
 }
 
-.add-button, .refresh-button, .maps-search-button {
+.add-button {
+    margin-bottom: 10px;
+    margin-left: 0;
+}
+
+
+.refresh-button, .maps-search-button {
     margin-bottom: 10px;
     margin-left: 5px;
+    margin-right: 0;
 }
