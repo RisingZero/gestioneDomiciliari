@@ -11,12 +11,15 @@ import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.m
 import 'react-bootstrap-table2-filter/dist/react-bootstrap-table2-filter.min.css';
 import fire from '../fire';
 import { pazienteConverter } from './supportPazienti';
+import { useDispatch } from 'react-redux';
 
 export default function Pazienti(props) {
 
     const db = fire.firestore();
 
-    const { uid } = props;
+    const dispatch = useDispatch();
+
+    const { uid, setPage } = props;
 
     const [addingPaziente, setAddingPaziente] = useState(false);
     const [listaPazienti, setListaPazienti] = useState([])
@@ -78,7 +81,16 @@ export default function Pazienti(props) {
     }
 
     const gmapsSearch = () => {
-        //TODO: implementare ricerca su mappa google automatica
+        dispatch({
+            type: "maps/addressClear"
+        })
+        for (let i = 0; i < selectedPazienti.length; i++) {
+            dispatch({
+                type: 'maps/addressAdded',
+                payload: [selectedPazienti[i].nome, selectedPazienti[i].cognome, selectedPazienti[i].indirizzo + ', Torino', selectedPazienti[i].uniqueId].join(';')
+            })
+        }
+        setPage("maps");
     }
 
     useEffect(() => {

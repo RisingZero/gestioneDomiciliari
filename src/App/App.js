@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navigation from '../Navigation/Navigation';
+import Home from '../Home/Home';
 import Medici from '../viewMedici/Medici';
 import Pazienti from '../viewPazienti/Pazienti';
+import MapPage from '../gmaps/MapPage';
 import Login from '../Login/Login';
 import fire from '../fire';
 
@@ -13,7 +15,7 @@ function App() {
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    const [page, setPage] = useState('pazienti');
+    const [page, setPage] = useState('home');
 
     const clearInputs = () => {
         setEmail('');
@@ -79,8 +81,15 @@ function App() {
             passwordError={passwordError}
             />
     } else {
-        //console.log(user.uid);
-        const displayPage = (page === "pazienti") ? <Pazienti uid={user.uid} /> : <Medici uid={user.uid} />
+        let displayPage;
+        if (page === "home")
+            displayPage = <Home uid={user.uid} />
+        else if (page === "pazienti")
+            displayPage = <Pazienti uid={user.uid} setPage={setPage} />
+        else if (page === "maps")
+            displayPage = <MapPage />
+        else if (page === "medici")
+            displayPage = <Medici uid={user.uid} />
         return (
             <div className="wrapper">
                 <Navigation handleLogout={handleLogout} setPage={setPage} />

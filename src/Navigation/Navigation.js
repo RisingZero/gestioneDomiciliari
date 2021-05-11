@@ -20,7 +20,7 @@ export default function Navigation(props) {
         <div className="navigation-wrapper">
           <Navbar bg="default" variant="dark" expand="lg">
             <Container>
-              <Navbar.Brand>Software gestione domiciliari</Navbar.Brand>
+              <Navbar.Brand onClick={() => setPage("home")}>Software gestione domiciliari</Navbar.Brand>
                 <button
                     aria-controls="navbar-default"
                     aria-expanded={false}
@@ -82,6 +82,20 @@ export default function Navigation(props) {
                       <i className="fa fa-user-md" />
                       <span className="nav-link-inner--text d-lg-none pl-2">
                         Medici
+                      </span>
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
+                      className="nav-link-icon"
+                      onClick={e => {
+                        e.preventDefault();
+                        setPage('maps');
+                      }}
+                    >
+                      <i className="ni ni-compass-04" />
+                      <span className="nav-link-inner--text d-lg-none pl-2">
+                        Mappa
                       </span>
                     </NavLink>
                   </NavItem>

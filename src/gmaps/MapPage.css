@@ -1,0 +1,22 @@
+.address-container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.address-label {
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid lightblue;
+    border-radius: 5pt;
+
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+p.name {
+    font-weight: bold;
+}
