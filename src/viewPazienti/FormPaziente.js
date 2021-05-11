@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './FormPaziente.css';
 import { Button, Form, Col, Row } from 'react-bootstrap';
 import { Paziente, pazienteConverter } from './supportPazienti';
+import Select from 'react-select';
 import fire from '../fire';
 
 export default function FormPaziente(props) {
@@ -208,16 +209,13 @@ export default function FormPaziente(props) {
                         Medico
                     </Form.Label>
                     <Col sm={5}>
-                        <Form.Control 
-                            as="select" 
-                            value={medico}
-                            onChange={e => {
-                                setMedico(e.target.value)}}>
-                            <option value="-1">Medico...</option>
-                            {listaMedici.map((med) => (
-                                <option value={med.id}>{med.nome}</option>
-                            ))}
-                        </Form.Control>
+                    <Select 
+                        options={listaMedici} 
+                        value={medico}
+                        getOptionLabel={(med) => med.nome}
+                        getOptionValue={(med) => med.id}
+                        onChange={(val) => setMedico(val)}
+                    />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row}>

@@ -52,7 +52,7 @@ export default function VotiMedico(props) {
 
     useEffect(() => {
         getPazientiOfMedico(medid);
-    }, [])
+    }, [medid])
 
     return (
         <div className="voti-visite">

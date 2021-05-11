@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CardMedico from '../viewMedici/CardMedico';
 import { Form, Row, Col, Button, Badge, InputGroup } from 'react-bootstrap';
+import Select from 'react-select';
 import fire from '../fire';
 import CryptoJS from 'crypto-js';
 import { Paziente, pazienteConverter } from './supportPazienti';
@@ -139,19 +140,16 @@ export default function DettagliPaziente(props) {
                         Medico
                     </Form.Label>
                     <Col sm={3}>
-                        <Form.Control 
-                            as="select"
-                            value={medico}
-                            onChange={e => setMedico(e.target.value)}
-                            disabled={!modifica}
-                            >
-                            <option value="-1">Medico...</option>
-                            {listaMedici.map((med) => (
-                                <option value={med.id}>{med.nome}</option>
-                            ))}
-                        </Form.Control>
+                        <Select 
+                                options={listaMedici} 
+                                value={medico}
+                                getOptionLabel={(med) => med.nome}
+                                getOptionValue={(med) => med.id}
+                                isDisabled={!modifica}
+                                onChange={(val) => setMedico(val)}
+                            />
                     </Col>
-                    <Col>{(paz.medico!=-1) && <CardMedico idMedico={medico} uid={uid} />}</Col>
+                    <Col>{(paz.medico!=-1) && <CardMedico idMedico={medico.id} uid={uid} />}</Col>
                 </Form.Group>
             </Form>
             <Form>

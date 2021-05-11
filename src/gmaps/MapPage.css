@@ -6,10 +6,8 @@
 
 .address-label {
     margin: 5px;
-    padding: 5px;
-    border: 2px solid lightblue;
-    border-radius: 5pt;
-
+    padding: 7px;
+    box-shadow: 1px 1px 5px grey;
 }
 
 p {
